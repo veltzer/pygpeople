@@ -1,5 +1,5 @@
 """ version which can be consumed from within the module """
-VERSION_STR = "0.0.1"
-DESCRIPTION = "Managed your contacts in google"
+VERSION_STR = "0.0.2"
+DESCRIPTION = "Manage your contacts in google"
 APP_NAME = "pygpeople"
 LOGGER_NAME = "pygpeople"

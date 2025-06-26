@@ -9,7 +9,7 @@ def get_readme():
 setuptools.setup(
     # the first three fields are a must according to the documentation
     name="pygpeople",
-    version="0.0.1",
+    version="0.0.2",
     packages=[
         "pygpeople",
     ],
@@ -17,7 +17,7 @@ setuptools.setup(
 		"pygpeople": ["*.json"],
     },
     # from here all is optional
-    description="Managed your contacts in google",
+    description="Manage your contacts in google",
     long_description=get_readme(),
     long_description_content_type="text/x-rst",
     author="Mark Veltzer",

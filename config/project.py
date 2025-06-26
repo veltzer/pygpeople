@@ -1,6 +1,6 @@
 """ project definitions """
 name = "pygpeople"
-description_short = "Managed your contacts in google"
+description_short = "Manage your contacts in google"
 keywords = [
     "google",
     "contacts",
