@@ -1,0 +1,13 @@
+- move to the people api - the api this package uses no longer works.
+- move to the new python API from the gdata- API we use now.
+	https://stackoverflow.com/questions/9969204/different-python-google-apis
+	document.
+	also document these issues somewhere.
+
+- check to implement: check that everyone who is really a contact
+	is a member of some group.
+- check to implement: check that every contact is either has a name
+	or a company with either a job description or department.
+- add a google map link to where every company is ?!?
+- find out why do I sometimes get an exception when calling the update method?
+	How can I avoid that?
