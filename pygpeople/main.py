@@ -2,13 +2,11 @@
 main
 """
 import os.path
+import json
 
 import pylogconf.core
-
 from pygooglehelper import register_functions, ConfigRequest, get_credentials
-
 from pytconf import register_endpoint, register_main, config_arg_parse_and_launch
-
 from googleapiclient.discovery import build
 
 from pygpeople.static import APP_NAME, DESCRIPTION, VERSION_STR
@@ -37,7 +35,38 @@ def me() -> None:
         resourceName="people/me",
         personFields="names,emailAddresses"
     ).execute()
-    print(results)
+    print(json.dumps(results, indent=2))
+
+
+@register_endpoint(
+    configs=[],
+    description="Get all my contacts in JSON format",
+)
+def contacts_json() -> None:
+    api = get_api()
+    all_contacts = []
+    page_token = None
+    page_counter = 1
+
+    while True:
+        results = (
+            api.people()
+            .connections()
+            .list(
+                resourceName="people/me",
+                pageSize=1000,
+                personFields="names,emailAddresses,phoneNumbers,organizations,biographies",
+                pageToken=page_token,
+            )
+            .execute()
+        )
+        connections = results.get("connections", [])
+        all_contacts.extend(connections)
+        page_token = results.get("nextPageToken")
+        if not page_token:
+            break
+        page_counter += 1
+    print(json.dumps(all_contacts, indent=2))
 
 
 @register_main(
