@@ -10,7 +10,7 @@ from pytconf import register_endpoint, register_main, config_arg_parse_and_launc
 from googleapiclient.discovery import build
 
 from pygpeople.static import APP_NAME, DESCRIPTION, VERSION_STR
-from pygpeople.constants import SCOPES, API_SERVICE_NAME, API_VERSION
+from pygpeople.constants import SCOPES, API_SERVICE_NAME, API_VERSION, PERSON_FIELDS
 
 
 def get_api():
@@ -48,6 +48,8 @@ def contacts_json() -> None:
     page_token = None
     page_counter = 1
 
+    all_fields = ",".join(PERSON_FIELDS)
+
     while True:
         results = (
             api.people()
@@ -55,7 +57,11 @@ def contacts_json() -> None:
             .list(
                 resourceName="people/me",
                 pageSize=1000,
-                personFields="names,emailAddresses,phoneNumbers,organizations,biographies",
+                # these are the most important fields
+                # personFields="names,emailAddresses,phoneNumbers,organizations,biographies",
+                # * does not work as the API does not support it
+                # personFields="*",
+                personFields=all_fields,
                 pageToken=page_token,
             )
             .execute()
