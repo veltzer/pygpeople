@@ -1,8 +1,8 @@
 """ python deps for this project """
 
-console_scripts: list[str] = [
-    "pygpeople=pygpeople.main:main",
-]
+scripts: dict[str,str] = {
+    "pygpeople": "pygpeople.main:main",
+}
 
 config_requires: list[str] = [
     "pyclassifiers",
