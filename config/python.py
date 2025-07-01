@@ -15,4 +15,3 @@ requires = install_requires + build_requires + test_requires
 scripts: dict[str,str] = {
     "pygpeople": "pygpeople.main:main",
 }
-
