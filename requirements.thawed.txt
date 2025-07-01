@@ -2,7 +2,6 @@
 google-api-python-client
 hatch
 mypy
-pyclassifiers
 pycmdtools
 pydmt
 pygooglehelper
