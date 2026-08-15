@@ -1,16 +1,16 @@
 """
 main
 """
-import os.path
 import json
+import os.path
 
 import pylogconf.core
-from pygooglehelper import register_functions, ConfigRequest, get_credentials
-from pytconf import register_endpoint, register_main, config_arg_parse_and_launch
 from googleapiclient.discovery import build
+from pygooglehelper import ConfigRequest, get_credentials, register_functions
+from pytconf import config_arg_parse_and_launch, register_endpoint, register_main
 
+from pygpeople.constants import API_SERVICE_NAME, API_VERSION, PERSON_FIELDS, SCOPES
 from pygpeople.static import APP_NAME, DESCRIPTION, VERSION_STR
-from pygpeople.constants import SCOPES, API_SERVICE_NAME, API_VERSION, PERSON_FIELDS
 
 
 def get_api():
