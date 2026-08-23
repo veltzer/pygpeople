@@ -6,3 +6,4 @@ KEYWORDS = {
     "people",
     "python",
 }
+PYPI = true
