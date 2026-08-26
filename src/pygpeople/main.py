@@ -2,7 +2,6 @@
 main
 """
 import json
-import os.path
 
 import pylogconf.core
 from googleapiclient.discovery import build
@@ -83,7 +82,7 @@ def contacts_json() -> None:
 def main():
     pylogconf.core.setup()
     ConfigRequest.scopes = SCOPES
-    ConfigRequest.location = os.path.dirname(os.path.realpath(__file__))
+    ConfigRequest.app_name = APP_NAME
     register_functions()
     config_arg_parse_and_launch()
 
