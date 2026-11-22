@@ -5,7 +5,7 @@
 
 description: Manage your contacts in google
 
-project website: https://veltzer.github.io/pygpeople
+project website: <https://veltzer.github.io/pygpeople>
 
 author: Mark Veltzer
 
