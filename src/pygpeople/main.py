@@ -2,6 +2,7 @@
 main
 """
 import json
+from typing import Any
 
 import pylogconf.core
 from googleapiclient.discovery import build
@@ -12,7 +13,7 @@ from pygpeople.constants import API_SERVICE_NAME, API_VERSION, PERSON_FIELDS, SC
 from pygpeople.static import APP_NAME, DESCRIPTION, VERSION_STR
 
 
-def get_api():
+def get_api() -> Any:
     ConfigRequest.scopes = SCOPES
     ConfigRequest.app_name = APP_NAME
     credentials = get_credentials()
