@@ -9,12 +9,13 @@ from googleapiclient.discovery import build
 from pygooglehelper import ConfigRequest, get_credentials, register_functions
 from pytconf import config_arg_parse_and_launch, register_endpoint, register_main
 
-from pygpeople.constants import API_SERVICE_NAME, API_VERSION, PERSON_FIELDS, SCOPES
+from pygpeople.constants import API_SERVICE_NAME, API_VERSION, GCP_PROJECT, PERSON_FIELDS, SCOPES
 from pygpeople.static import APP_NAME, DESCRIPTION, VERSION_STR
 
 
 def get_api() -> Any:
     ConfigRequest.scopes = SCOPES
+    ConfigRequest.gcp_project = GCP_PROJECT
     ConfigRequest.app_name = APP_NAME
     credentials = get_credentials()
     return build(
@@ -83,6 +84,7 @@ def contacts_json() -> None:
 def main():
     pylogconf.core.setup()
     ConfigRequest.scopes = SCOPES
+    ConfigRequest.gcp_project = GCP_PROJECT
     ConfigRequest.app_name = APP_NAME
     register_functions()
     config_arg_parse_and_launch()
