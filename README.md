@@ -9,7 +9,7 @@ project website: <https://veltzer.github.io/pygpeople>
 
 author: Mark Veltzer
 
-version: 0.0.4
+version: 0.0.5
 
 ## github
 
