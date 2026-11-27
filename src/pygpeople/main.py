@@ -45,7 +45,7 @@ def me() -> None:
 )
 def contacts_json() -> None:
     api = get_api()
-    all_contacts = []
+    all_contacts: list[dict[str, Any]] = []
     page_token = None
     page_counter = 1
 
