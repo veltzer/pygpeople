@@ -58,10 +58,7 @@ def contacts_json() -> None:
             .list(
                 resourceName="people/me",
                 pageSize=1000,
-                # these are the most important fields
-                # personFields="names,emailAddresses,phoneNumbers,organizations,biographies",
-                # * does not work as the API does not support it
-                # personFields="*",
+                # "*" does not work as personFields: the API does not support it
                 personFields=all_fields,
                 pageToken=page_token,
             )
